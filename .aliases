@@ -12,7 +12,6 @@ alias -- -="cd -"
 alias dt="cd ~/Desktop"
 alias d="cd ~/Documents"
 alias wp="cd ~/Documents/BigNerdRanch/Whirlpool/whirlpool-smartgrid/"
-alias dot="cd Documents/OpenSource/Dotfiles/dotfiles/"
 alias sync="./sync.sh"
 
 #Git Shortcuts
