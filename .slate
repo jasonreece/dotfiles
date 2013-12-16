@@ -1,22 +1,29 @@
-# This is the default .slate file.
-# If no ~/.slate file exists this is the file that will be used.
+#                          __   _         
+#                         / _| (_)        
+#   ___    ___    _ __   | |_   _    __ _ 
+#  / __|  / _ \  | '_ \  |  _| | |  / _` |
+# | (__  | (_) | | | | | | |   | | | (_| |
+#  \___|  \___/  |_| |_| |_|   |_|  \__, |
+#                                    __/ |
+#                                   |___/ 
+#
 
 config defaultToCurrentScreen true
 config nudgePercentOf screenSize
 config resizePercentOf screenSize
 
-# Window Hints
-bind esc:cmd hint
-
-################# #################
-#End Default config
-
-#################
-#Jasons Config
+#          _   _                            
+#         | | (_)                           
+#   __ _  | |  _    __ _   ___    ___   ___ 
+#  / _` | | | | |  / _` | / __|  / _ \ / __|
+# | (_| | | | | | | (_| | \__ \ |  __/ \__ \
+#  \__,_| |_| |_|  \__,_| |___/  \___| |___/
+#                                           
+#                                           
 
 # Monitor Aliases
-alias laptop     0
-alias display    1
+alias laptop 0
+alias display 1
 
 # Abstract positions
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY             
@@ -28,79 +35,61 @@ alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
 alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2          
 alias threequarter move screenOriginX;screenOriginY screenSizeX/1.14;screenSizeY      
 
+#concrete positions for laptop layout
+alias 1-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${laptop}
+alias 1-lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY ${laptop}
+alias 1-righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY ${laptop}
+alias 1-topleft corner top-left resize:screenSizeX/2;screenSizeY/2 ${laptop}
+alias 1-topright corner top-right resize:screenSizeX/2;screenSizeY/2 ${laptop}
+alias 1-bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2 ${laptop}
+alias 1-bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2 ${laptop}
+alias 1-threequarter move screenOriginX;screenOriginY screenSizeX/1.14;screenSizeY ${laptop}
 
-
-#concrete positions
-alias 1-full move screenOriginX;screenOriginY screenSizeX;screenSizeY             ${laptop}
-alias 1-lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY           ${laptop}
-alias 1-righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY    ${laptop}
-alias 1-topleft corner top-left resize:screenSizeX/2;screenSizeY/2                ${laptop}
-alias 1-topright corner top-right resize:screenSizeX/2;screenSizeY/2              ${laptop}
-alias 1-bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2            ${laptop}
-alias 1-bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2            ${laptop}
-alias 1-threequarter move screenOriginX;screenOriginY screenSizeX/1.14;screenSizeY        ${laptop}
-
+#concrete positions for display layout
 alias 2-full move screenOriginX;screenOriginY screenSizeX;screenSizeY
-alias 2-lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY           ${display}
-alias 2-righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY    ${display}
-alias 2-topleft corner top-left resize:screenSizeX/2;screenSizeY/2                ${display}
-alias 2-topright corner top-right resize:screenSizeX/2;screenSizeY/2              ${display}
-alias 2-bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2            ${display}
-alias 2-bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2            ${display}
-alias 2-threequarter move screenOriginX;screenOriginY screenSizeX/1.14;screenSizeY        ${display}
+alias 2-lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY ${display}
+alias 2-righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY ${display}
+alias 2-topleft corner top-left resize:screenSizeX/2;screenSizeY/2 ${display}
+alias 2-topright corner top-right resize:screenSizeX/2;screenSizeY/2 ${display}
+alias 2-bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2 ${display}
+alias 2-bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2 ${display}
+alias 2-threequarter move screenOriginX;screenOriginY screenSizeX/1.14;screenSizeY ${display}
+
+#
+#  _       _               _   _                       
+# | |     (_)             | | (_)                      
+# | |__    _   _ __     __| |  _   _ __     __ _   ___ 
+# | '_ \  | | | '_ \   / _` | | | | '_ \   / _` | / __|
+# | |_) | | | | | | | | (_| | | | | | | | | (_| | \__ \
+# |_.__/  |_| |_| |_|  \__,_| |_| |_| |_|  \__, | |___/
+#                                           __/ |      
+#                                          |___/       
 
 # Resize Bindings
-bind right:ctrl;alt;cmd       resize +10% +0
-bind left:ctrl;alt;cmd        resize -10% +0
-bind up:ctrl;alt;cmd          resize +0   -10%
-bind down:ctrl;alt;cmd        resize +0   +10%
+bind right:ctrl;alt;cmd resize +10% +0
+bind left:ctrl;alt;cmd resize -10% +0
+bind up:ctrl;alt;cmd resize +0 -10%
+bind down:ctrl;alt;cmd resize +0 +10%
 
 # Throw Bindings
 bind right:shift;alt;cmd throw right
-bind left:shift;alt;cmd  throw left
+bind left:shift;alt;cmd throw left
 
-#position bindings
-bind 7:ctrl;alt;cmd ${lefthalf}
+# Position Bindings
 bind ;:ctrl;alt;cmd ${lefthalf}
-
-bind 9:ctrl;alt;cmd ${righthalf}
 bind ':ctrl;alt;cmd ${righthalf}
-
-bind 3:ctrl;alt;cmd ${threequarter}
 bind return:ctrl;alt;cmd ${threequarter}
-
 bind f:ctrl;alt;cmd ${full}
 
-bind pad7:ctrl;alt;cmd ${lefthalf}
-bind pad9:ctrl;alt;cmd ${righthalf}
-bind pad3:ctrl;alt;cmd ${threequarter}
-
-
-                                                                                                                       
-                                                                                                                       
-# lllllll                                                                                 tttt                           
-# l:::::l                                                                              ttt:::t                           
-# l:::::l                                                                              t:::::t                           
-# l:::::l                                                                              t:::::t                           
-#  l::::l   aaaaaaaaaaaaayyyyyyy           yyyyyyy ooooooooooo   uuuuuu    uuuuuuttttttt:::::ttttttt        ssssssssss   
-#  l::::l   a::::::::::::ay:::::y         y:::::yoo:::::::::::oo u::::u    u::::ut:::::::::::::::::t      ss::::::::::s  
-#  l::::l   aaaaaaaaa:::::ay:::::y       y:::::yo:::::::::::::::ou::::u    u::::ut:::::::::::::::::t    ss:::::::::::::s 
-#  l::::l            a::::a y:::::y     y:::::y o:::::ooooo:::::ou::::u    u::::utttttt:::::::tttttt    s::::::ssss:::::s
-#  l::::l     aaaaaaa:::::a  y:::::y   y:::::y  o::::o     o::::ou::::u    u::::u      t:::::t           s:::::s  ssssss 
-#  l::::l   aa::::::::::::a   y:::::y y:::::y   o::::o     o::::ou::::u    u::::u      t:::::t             s::::::s      
-#  l::::l  a::::aaaa::::::a    y:::::y:::::y    o::::o     o::::ou::::u    u::::u      t:::::t                s::::::s   
-#  l::::l a::::a    a:::::a     y:::::::::y     o::::o     o::::ou:::::uuuu:::::u      t:::::t    ttttttssssss   s:::::s 
-# l::::::la::::a    a:::::a      y:::::::y      o:::::ooooo:::::ou:::::::::::::::uu    t::::::tttt:::::ts:::::ssss::::::s
-# l::::::la:::::aaaa::::::a       y:::::y       o:::::::::::::::o u:::::::::::::::u    tt::::::::::::::ts::::::::::::::s 
-# l::::::l a::::::::::aa:::a     y:::::y         oo:::::::::::oo   uu::::::::uu:::u      tt:::::::::::tt s:::::::::::ss  
-# llllllll  aaaaaaaaaa  aaaa    y:::::y            ooooooooooo       uuuuuuuu  uuuu        ttttttttttt    sssssssssss    
-#                              y:::::y                                                                                   
-#                             y:::::y                                                                                    
-#                            y:::::y                                                                                     
-#                           y:::::y                                                                                      
-#                          yyyyyyy                                                                                       
-                                                                                                                       
-                                                                                                                       
+#
+#  _                                   _          
+# | |                                 | |         
+# | |   __ _   _   _    ___    _   _  | |_   ___  
+# | |  / _` | | | | |  / _ \  | | | | | __| / __| 
+# | | | (_| | | |_| | | (_) | | |_| | | |_  \__ \ 
+# |_|  \__,_|  \__, |  \___/   \__,_|  \__| |___/ 
+#               __/ |                             
+#              |___/                              
 
 # laptop layout
 layout laptop 'Terminal':REPEAT ${lefthalf} 
@@ -111,14 +100,26 @@ layout laptop 'Google Chrome':MAIN_FIRST ${threequarter} | ${lefthalf}
 layout laptop 'Google Chrome Canary':MAIN_FIRST ${threequarter} | ${lefthalf}
 layout laptop 'Firefox':MAIN_FIRST ${threequarter} | ${lefthalf}
 layout laptop 'Safari':MAIN_FIRST ${threequarter} | ${lefthalf}
-layout laptop 'iChat':REPEAT ${lefthalf}
+layout laptop 'Messages':REPEAT ${lefthalf}
 layout laptop 'CodeKit':REPEAT ${lefthalf}
 layout laptop 'Mixture':REPEAT ${lefthalf}
 layout laptop 'Transmit':REPEAT ${lefthalf}
 layout laptop 'Propane':REPEAT ${lefthalf}
 
-bind 1:ctrl;alt;cmd layout laptop
-bind pad1:ctrl;alt;cmd layout laptop
+# laptopfullscreen layout
+layout laptopfullscreen 'Terminal':REPEAT ${lefthalf} 
+layout laptopfullscreen 'Sublime Text 2':REPEAT ${full}
+layout laptopfullscreen 'Mail':REPEAT ${threequarter}
+layout laptopfullscreen 'iCal':REPEAT ${threequarter}
+layout laptopfullscreen 'Google Chrome':MAIN_FIRST ${full} | ${lefthalf}
+layout laptopfullscreen 'Google Chrome Canary':MAIN_FIRST ${full} | ${lefthalf}
+layout laptopfullscreen 'Firefox':MAIN_FIRST ${full} | ${lefthalf}
+layout laptopfullscreen 'Safari':MAIN_FIRST ${full} | ${lefthalf}
+layout laptopfullscreen 'Messages':REPEAT ${lefthalf}
+layout laptopfullscreen 'CodeKit':REPEAT ${lefthalf}
+layout laptopfullscreen 'Mixture':REPEAT ${lefthalf}
+layout laptopfullscreen 'Transmit':REPEAT ${lefthalf}
+layout laptopfullscreen 'Propane':REPEAT ${lefthalf}
 
 # display layout
 layout display 'Terminal':REPEAT ${2-lefthalf} 
@@ -129,61 +130,36 @@ layout display 'Google Chrome':MAIN_FIRST ${2-threequarter} | ${1-righthalf}
 layout display 'Google Chrome Canary':MAIN_FIRST ${2-threequarter} | ${1-righthalf}
 layout display 'Firefox':MAIN_FIRST ${2-threequarter} | ${1-righthalf}
 layout display 'Safari':MAIN_FIRST ${2-threequarter} | ${1-righthalf}
-layout display 'iChat':REPEAT ${1-righthalf}
+layout display 'Messages':REPEAT ${1-righthalf}
 layout display 'CodeKit':REPEAT ${2-lefthalf}
 layout display 'Mixture':REPEAT ${2-lefthalf}
 layout display 'Transmit':REPEAT ${2-lefthalf}
 layout display 'Propane':REPEAT ${1-righthalf}
 
+bind 1:ctrl;alt;cmd layout laptop
 bind 2:ctrl;alt;cmd layout display
-bind pad2:ctrl;alt;cmd layout display
+bind 3:ctrl;alt;cmd layout laptopfullscreen
 
-#                                                                    
-#                                                            dddddddd
-#                                          iiii              d::::::d
-#                                         i::::i             d::::::d
-#                                          iiii              d::::::d
-#                                                            d:::::d 
-#    ggggggggg   gggggrrrrr   rrrrrrrrr  iiiiiii     ddddddddd:::::d 
-#   g:::::::::ggg::::gr::::rrr:::::::::r i:::::i   dd::::::::::::::d 
-#  g:::::::::::::::::gr:::::::::::::::::r i::::i  d::::::::::::::::d 
-# g::::::ggggg::::::ggrr::::::rrrrr::::::ri::::i d:::::::ddddd:::::d 
-# g:::::g     g:::::g  r:::::r     r:::::ri::::i d::::::d    d:::::d 
-# g:::::g     g:::::g  r:::::r     rrrrrrri::::i d:::::d     d:::::d 
-# g:::::g     g:::::g  r:::::r            i::::i d:::::d     d:::::d 
-# g::::::g    g:::::g  r:::::r            i::::i d:::::d     d:::::d 
-# g:::::::ggggg:::::g  r:::::r           i::::::id::::::ddddd::::::dd
-#  g::::::::::::::::g  r:::::r           i::::::i d:::::::::::::::::d
-#   gg::::::::::::::g  r:::::r           i::::::i  d:::::::::ddd::::d
-#     gggggggg::::::g  rrrrrrr           iiiiiiii   ddddddddd   ddddd
-#             g:::::g                                                
-# gggggg      g:::::g                                                
-# g:::::gg   gg:::::g                                                
-#  g::::::ggg:::::::g                                                
-#   gg:::::::::::::g                                                 
-#     ggg::::::ggg                                                   
-#        gggggg                                                      
+#                 _       _ 
+#                (_)     | |
+#   __ _   _ __   _    __| |
+#  / _` | | '__| | |  / _` |
+# | (_| | | |    | | | (_| |
+#  \__, | |_|    |_|  \__,_|
+#   __/ |                   
+#  |___/                    
+#
 
 bind g:ctrl;alt;cmd grid padding:5 1680x1050:16,9 1050x1680:9,16
 
-                                                                                                                                                                          
-# hhhhhhh               iiii                            tttt                           
-# h:::::h              i::::i                        ttt:::t                           
-# h:::::h               iiii                         t:::::t                           
-# h:::::h                                            t:::::t                           
-#  h::::h hhhhh       iiiiiiinnnn  nnnnnnnn    ttttttt:::::ttttttt        ssssssssss   
-#  h::::hh:::::hhh    i:::::in:::nn::::::::nn  t:::::::::::::::::t      ss::::::::::s  
-#  h::::::::::::::hh   i::::in::::::::::::::nn t:::::::::::::::::t    ss:::::::::::::s 
-#  h:::::::hhh::::::h  i::::inn:::::::::::::::ntttttt:::::::tttttt    s::::::ssss:::::s
-#  h::::::h   h::::::h i::::i  n:::::nnnn:::::n      t:::::t           s:::::s  ssssss 
-#  h:::::h     h:::::h i::::i  n::::n    n::::n      t:::::t             s::::::s      
-#  h:::::h     h:::::h i::::i  n::::n    n::::n      t:::::t                s::::::s   
-#  h:::::h     h:::::h i::::i  n::::n    n::::n      t:::::t    ttttttssssss   s:::::s 
-#  h:::::h     h:::::hi::::::i n::::n    n::::n      t::::::tttt:::::ts:::::ssss::::::s
-#  h:::::h     h:::::hi::::::i n::::n    n::::n      tt::::::::::::::ts::::::::::::::s 
-#  h:::::h     h:::::hi::::::i n::::n    n::::n        tt:::::::::::tt s:::::::::::ss  
-#  hhhhhhh     hhhhhhhiiiiiiii nnnnnn    nnnnnn          ttttttttttt    sssssssssss    
-                                                                                     
+#  _       _           _         
+# | |     (_)         | |        
+# | |__    _   _ __   | |_   ___ 
+# | '_ \  | | | '_ \  | __| / __|
+# | | | | | | | | | | | |_  \__ \
+# |_| |_| |_| |_| |_|  \__| |___/
+#
+
 config windowHintsFontColor 0;0;0;1.0
 config windowHintsFontSize 100
 config windowHintsDuration 6
@@ -192,37 +168,19 @@ config windowHintsShowIcons true
 config windowHintsIgnoreHiddenWindows false
 config windowHintsSpread true
 
-bind h:ctrl;alt;cmd hint 1234567890 
-bind space:shift;cmd hint 1234567890
-bind space:ctrl;cmd hint 1234567890
+bind esc:cmd hint 1234567890
+bind h:ctrl;alt;cmd hint 1234567890
 
-                                                                                                                            
-                                                                                                                         
-#                                                         iiii          tttt                             hhhhhhh             
-#                                                        i::::i      ttt:::t                             h:::::h             
-#                                                         iiii       t:::::t                             h:::::h             
-#                                                                    t:::::t                             h:::::h             
-#    sssssssssswwwwwww           wwwww           wwwwwwwiiiiiiittttttt:::::ttttttt        cccccccccccccccch::::h hhhhh       
-#  ss::::::::::sw:::::w         w:::::w         w:::::w i:::::it:::::::::::::::::t      cc:::::::::::::::ch::::hh:::::hhh    
-# s:::::::::::::sw:::::w       w:::::::w       w:::::w   i::::it:::::::::::::::::t     c:::::::::::::::::ch::::::::::::::hh  
-# ::::::ssss:::::sw:::::w     w:::::::::w     w:::::w    i::::itttttt:::::::tttttt    c:::::::cccccc:::::ch:::::::hhh::::::h 
-# s:::::s  ssssss  w:::::w   w:::::w:::::w   w:::::w     i::::i      t:::::t          c::::::c     ccccccch::::::h   h::::::h
-#   s::::::s        w:::::w w:::::w w:::::w w:::::w      i::::i      t:::::t          c:::::c             h:::::h     h:::::h
-#      s::::::s      w:::::w:::::w   w:::::w:::::w       i::::i      t:::::t          c:::::c             h:::::h     h:::::h
-# sssss   s:::::s     w:::::::::w     w:::::::::w        i::::i      t:::::t    ttttttc::::::c     ccccccch:::::h     h:::::h
-# :::::ssss::::::s     w:::::::w       w:::::::w        i::::::i     t::::::tttt:::::tc:::::::cccccc:::::ch:::::h     h:::::h
-# ::::::::::::::s       w:::::w         w:::::w         i::::::i     tt::::::::::::::t c:::::::::::::::::ch:::::h     h:::::h
-# s:::::::::::ss         w:::w           w:::w          i::::::i       tt:::::::::::tt  cc:::::::::::::::ch:::::h     h:::::h
-#  sssssssssss            www             www           iiiiiiii         ttttttttttt      cccccccccccccccchhhhhhh     hhhhhhh
-#                                                                                                                            
-                                                                                                                            
-                                                                                                                                                                                                                                                        
+#                   _   _            _     
+#                  (_) | |          | |    
+#  ___  __      __  _  | |_    ___  | |__  
+# / __| \ \ /\ / / | | | __|  / __| | '_ \ 
+# \__ \  \ V  V /  | | | |_  | (__  | | | |
+# |___/   \_/\_/   |_|  \__|  \___| |_| |_|
+#
+#
+#
+
 #switch is commented out until :hover works
 #config switchShowTitles true
 #bind tab:cmd switch
-
-
-
-
-
-
