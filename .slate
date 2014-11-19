@@ -1,43 +1,43 @@
-#                          __   _         
-#                         / _| (_)        
-#   ___    ___    _ __   | |_   _    __ _ 
+#                          __   _
+#                         / _| (_)
+#   ___    ___    _ __   | |_   _    __ _
 #  / __|  / _ \  | '_ \  |  _| | |  / _` |
 # | (__  | (_) | | | | | | |   | | | (_| |
 #  \___|  \___/  |_| |_| |_|   |_|  \__, |
 #                                    __/ |
-#                                   |___/ 
+#                                   |___/
 #
 
 config defaultToCurrentScreen true
 config nudgePercentOf screenSize
 config resizePercentOf screenSize
 
-#          _   _                            
-#         | | (_)                           
-#   __ _  | |  _    __ _   ___    ___   ___ 
+#          _   _
+#         | | (_)
+#   __ _  | |  _    __ _   ___    ___   ___
 #  / _` | | | | |  / _` | / __|  / _ \ / __|
 # | (_| | | | | | | (_| | \__ \ |  __/ \__ \
 #  \__,_| |_| |_|  \__,_| |___/  \___| |___/
-#                                           
-#                                           
+#
+#
 
 # Monitor Aliases
 alias laptop 0
 alias display 1
 
 # Abstract positions
-alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY             
-alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY         
-alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY  
-alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2              
-alias topright corner top-right resize:screenSizeX/2;screenSizeY/2              
-alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2            
-alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2          
-alias threequarter move screenOriginX;screenOriginY screenSizeX/1.14;screenSizeY      
+alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
+alias lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2
+alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
+alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
+alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
+alias threequarter move screenOriginX;screenOriginY screenSizeX/1.14;screenSizeY
 
 #concrete positions for laptop layout
-alias 1-full move screenOriginX;screenOriginY screenSizeX;screenSizeY ${laptop}
-alias 1-lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY ${laptop}
+alias 1-full move screenOriginX;screenOriginY screenSizeX;screenSizeY	${laptop}
+alias 1-lefthalf move screenOriginX;screenOriginY screenSizeX/2;screenSizeY	${laptop}
 alias 1-righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY ${laptop}
 alias 1-topleft corner top-left resize:screenSizeX/2;screenSizeY/2 ${laptop}
 alias 1-topright corner top-right resize:screenSizeX/2;screenSizeY/2 ${laptop}
@@ -56,14 +56,14 @@ alias 2-bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2 ${dis
 alias 2-threequarter move screenOriginX;screenOriginY screenSizeX/1.14;screenSizeY ${display}
 
 #
-#  _       _               _   _                       
-# | |     (_)             | | (_)                      
-# | |__    _   _ __     __| |  _   _ __     __ _   ___ 
+#  _       _               _   _
+# | |     (_)             | | (_)
+# | |__    _   _ __     __| |  _   _ __     __ _   ___
 # | '_ \  | | | '_ \   / _` | | | | '_ \   / _` | / __|
 # | |_) | | | | | | | | (_| | | | | | | | | (_| | \__ \
 # |_.__/  |_| |_| |_|  \__,_| |_| |_| |_|  \__, | |___/
-#                                           __/ |      
-#                                          |___/       
+#                                           __/ |
+#                                          |___/
 
 # Resize Bindings
 bind right:ctrl;alt;cmd resize +10% +0
@@ -82,79 +82,97 @@ bind return:ctrl;alt;cmd ${threequarter}
 bind f:ctrl;alt;cmd ${full}
 
 #
-#  _                                   _          
-# | |                                 | |         
-# | |   __ _   _   _    ___    _   _  | |_   ___  
-# | |  / _` | | | | |  / _ \  | | | | | __| / __| 
-# | | | (_| | | |_| | | (_) | | |_| | | |_  \__ \ 
-# |_|  \__,_|  \__, |  \___/   \__,_|  \__| |___/ 
-#               __/ |                             
-#              |___/                              
+#  _                                   _
+# | |                                 | |
+# | |   __ _   _   _    ___    _   _  | |_   ___
+# | |  / _` | | | | |  / _ \  | | | | | __| / __|
+# | | | (_| | | |_| | | (_) | | |_| | | |_  \__ \
+# |_|  \__,_|  \__, |  \___/   \__,_|  \__| |___/
+#               __/ |
+#              |___/
 
 # laptop layout
-layout laptop 'Terminal':REPEAT ${lefthalf} 
-layout laptop 'Sublime Text 2':REPEAT ${threequarter}
-layout laptop 'Mail':REPEAT ${threequarter}
-layout laptop 'iCal':REPEAT ${threequarter}
+layout laptop 'Atom':REPEAT ${threequarter}
+layout laptop 'Clear':REPEAT ${lefthalf}
+layout laptop 'CodeKit':REPEAT ${lefthalf}
+layout laptop 'Firefox':MAIN_FIRST ${threequarter} | ${lefthalf}
 layout laptop 'Google Chrome':MAIN_FIRST ${threequarter} | ${lefthalf}
 layout laptop 'Google Chrome Canary':MAIN_FIRST ${threequarter} | ${lefthalf}
-layout laptop 'Firefox':MAIN_FIRST ${threequarter} | ${lefthalf}
-layout laptop 'Safari':MAIN_FIRST ${threequarter} | ${lefthalf}
+layout laptop 'HipChat':REPEAT ${lefthalf}
+layout laptop 'iCal':REPEAT ${threequarter}
+layout laptop 'Mail':REPEAT ${threequarter}
 layout laptop 'Messages':REPEAT ${lefthalf}
-layout laptop 'CodeKit':REPEAT ${lefthalf}
 layout laptop 'Mixture':REPEAT ${lefthalf}
-layout laptop 'Transmit':REPEAT ${lefthalf}
+layout laptop 'nvALT':REPEAT ${threequarter}
+layout laptop 'Preview':REPEAT ${threequarter}
 layout laptop 'Propane':REPEAT ${lefthalf}
+layout laptop 'Safari':MAIN_FIRST ${threequarter} | ${lefthalf}
+layout laptop 'Sublime Text 2':REPEAT ${threequarter}
+layout laptop 'Terminal':REPEAT ${threequarter}
+layout laptop 'Transmit':REPEAT ${lefthalf}
+layout laptop 'Tweetbot':REPEAT ${lefthalf}
 
 # laptopfullscreen layout
-layout laptopfullscreen 'Terminal':REPEAT ${lefthalf} 
-layout laptopfullscreen 'Sublime Text 2':REPEAT ${full}
-layout laptopfullscreen 'Mail':REPEAT ${threequarter}
-layout laptopfullscreen 'iCal':REPEAT ${threequarter}
+layout laptopfullscreen 'Atom':REPEAT ${full}
+layout laptopfullscreen 'Clear':REPEAT ${lefthalf}
+layout laptopfullscreen 'CodeKit':REPEAT ${lefthalf}
+layout laptopfullscreen 'Firefox':MAIN_FIRST ${full} | ${lefthalf}
 layout laptopfullscreen 'Google Chrome':MAIN_FIRST ${full} | ${lefthalf}
 layout laptopfullscreen 'Google Chrome Canary':MAIN_FIRST ${full} | ${lefthalf}
-layout laptopfullscreen 'Firefox':MAIN_FIRST ${full} | ${lefthalf}
-layout laptopfullscreen 'Safari':MAIN_FIRST ${full} | ${lefthalf}
+layout laptopfullscreen 'HipChat':REPEAT ${lefthalf}
+layout laptopfullscreen 'iCal':REPEAT ${threequarter}
+layout laptopfullscreen 'Mail':REPEAT ${threequarter}
 layout laptopfullscreen 'Messages':REPEAT ${lefthalf}
-layout laptopfullscreen 'CodeKit':REPEAT ${lefthalf}
 layout laptopfullscreen 'Mixture':REPEAT ${lefthalf}
-layout laptopfullscreen 'Transmit':REPEAT ${lefthalf}
+layout laptopfullscreen 'nvALT':REPEAT ${threequarter}
+layout laptopfullscreen 'Preview':REPEAT ${threequarter}
 layout laptopfullscreen 'Propane':REPEAT ${lefthalf}
+layout laptopfullscreen 'Safari':MAIN_FIRST ${full} | ${lefthalf}
+layout laptopfullscreen 'Sublime Text 2':REPEAT ${full}
+layout laptopfullscreen 'Terminal':REPEAT ${threequarter}
+layout laptopfullscreen 'Transmit':REPEAT ${lefthalf}
+layout laptopfullscreen 'Tweetbot':REPEAT ${lefthalf}
 
 # display layout
-layout display 'Terminal':REPEAT ${2-lefthalf} 
-layout display 'Sublime Text 2':REPEAT ${2-threequarter}
-layout display 'Mail':REPEAT ${1-full} 
-layout display 'iCal':REPEAT ${1-full} 
+layout display 'Atom':REPEAT ${2-threequarter}
+layout display 'Clear':REPEAT ${1-righthalf}
+layout display 'CodeKit':REPEAT ${2-lefthalf}
+layout display 'Firefox':MAIN_FIRST ${2-threequarter} | ${1-righthalf}
 layout display 'Google Chrome':MAIN_FIRST ${2-threequarter} | ${1-righthalf}
 layout display 'Google Chrome Canary':MAIN_FIRST ${2-threequarter} | ${1-righthalf}
-layout display 'Firefox':MAIN_FIRST ${2-threequarter} | ${1-righthalf}
-layout display 'Safari':MAIN_FIRST ${2-threequarter} | ${1-righthalf}
-layout display 'Messages':REPEAT ${1-righthalf}
-layout display 'CodeKit':REPEAT ${2-lefthalf}
+layout display 'HipChat':REPEAT ${1-lefthalf}
+layout display 'iCal':REPEAT ${1-full}
+layout display 'Mail':REPEAT ${1-full}
 layout display 'Mixture':REPEAT ${2-lefthalf}
-layout display 'Transmit':REPEAT ${2-lefthalf}
+layout display 'Messages':REPEAT ${1-righthalf}
+layout display 'nvALT':REPEAT ${2-threequarter}
+layout display 'Preview':REPEAT ${2-threequarter}
 layout display 'Propane':REPEAT ${1-righthalf}
+layout display 'Safari':MAIN_FIRST ${2-threequarter} | ${1-righthalf}
+layout display 'Sublime Text 2':REPEAT ${2-threequarter}
+layout display 'Terminal':REPEAT ${2-threequarter}
+layout display 'Transmit':REPEAT ${2-lefthalf}
+layout display 'Tweetbot':REPEAT ${1-lefthalf}
 
 bind 1:ctrl;alt;cmd layout laptop
 bind 2:ctrl;alt;cmd layout display
 bind 3:ctrl;alt;cmd layout laptopfullscreen
 
-#                 _       _ 
+#                 _       _
 #                (_)     | |
 #   __ _   _ __   _    __| |
 #  / _` | | '__| | |  / _` |
 # | (_| | | |    | | | (_| |
 #  \__, | |_|    |_|  \__,_|
-#   __/ |                   
-#  |___/                    
+#   __/ |
+#  |___/
 #
 
 bind g:ctrl;alt;cmd grid padding:5 1680x1050:16,9 1050x1680:9,16
 
-#  _       _           _         
-# | |     (_)         | |        
-# | |__    _   _ __   | |_   ___ 
+#  _       _           _
+# | |     (_)         | |
+# | |__    _   _ __   | |_   ___
 # | '_ \  | | | '_ \  | __| / __|
 # | | | | | | | | | | | |_  \__ \
 # |_| |_| |_| |_| |_|  \__| |___/
@@ -171,10 +189,10 @@ config windowHintsSpread true
 bind esc:cmd hint 1234567890
 bind h:ctrl;alt;cmd hint 1234567890
 
-#                   _   _            _     
-#                  (_) | |          | |    
-#  ___  __      __  _  | |_    ___  | |__  
-# / __| \ \ /\ / / | | | __|  / __| | '_ \ 
+#                   _   _            _
+#                  (_) | |          | |
+#  ___  __      __  _  | |_    ___  | |__
+# / __| \ \ /\ / / | | | __|  / __| | '_ \
 # \__ \  \ V  V /  | | | |_  | (__  | | | |
 # |___/   \_/\_/   |_|  \__|  \___| |_| |_|
 #
